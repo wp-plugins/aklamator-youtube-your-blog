@@ -4,7 +4,7 @@ Donate link: http://www.aklamator.com/
 Tags: youtube, video, youtube channel, youtube gallery, youtube feed, video feed, aklamator, aclamator, digital pr, widget, widgets, content promotion, earn, income, statistic, tracking, cross promotion,  crosspromote, thumbnail, channel
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,7 @@ Aklamator is not traffic exchange service or ad exchange network.
 
 
 **Make you own ad network**
+
 Your creativity is the limit. Feel free to choose any RSS to feed your widget positions. You can use our service to populate your website and make your blog more interesting for visitors thus reducing effective bounce rate.
 
 Our service enables you to track statistics of views and clicks for each widget that you place. Inform your visitors and offer new services to your clients.
@@ -93,6 +94,9 @@ Yes you can! But one widget can only be placed once per page, so use multiple wi
 5. How the aklamator widget looks like?
 
 == Changelog ==
+
+= 1.0.1 =
+* Better preview window
 
 = 1.0 =
 * First version of Aklamator youtube plugin

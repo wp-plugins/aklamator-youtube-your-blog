@@ -3,7 +3,7 @@
 Plugin Name: Aklamator - Youtube Your Blog
 Plugin URI: http://www.aklamator.com/wordpress
 Description: Show youtube channel on your blog, just paste one youtube and we will show all your channel videos. Drag and drop widget and show youtube gallery. Additionally Aklamator service enables you to add your media releases, sell PR announcements, cross promote web sites using RSS feed and provide new services to your clients in digital advertising.
-Version: 1.0
+Version: 1.0.1
 Author: Aklamator
 Author URI: http://www.aklamator.com/
 License: GPL2
@@ -482,7 +482,7 @@ class AklamatorYoutubeWidget
 
             function myFunction(widget_id) {
 
-                var myWindow = window.open("", "myWindow", "width=900, height=400, top=200, left=500");
+                var myWindow = window.open("", "myWindow", "width=900, height=430, top=200, left=500");
 
                 tekst = '<div style="margin: 50px 0px" id="akla' + widget_id + '"></div>';
                 tekst += '<script>(function(d, s, id) {';
