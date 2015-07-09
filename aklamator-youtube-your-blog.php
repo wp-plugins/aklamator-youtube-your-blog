@@ -3,7 +3,7 @@
 Plugin Name: Aklamator - Youtube Your Blog
 Plugin URI: http://www.aklamator.com/wordpress
 Description: Show youtube channel on your blog, just paste one youtube and we will show all your channel videos. Drag and drop widget and show youtube gallery. Additionally Aklamator service enables you to add your media releases, sell PR announcements, cross promote web sites using RSS feed and provide new services to your clients in digital advertising.
-Version: 1.0.1
+Version: 1.1
 Author: Aklamator
 Author URI: http://www.aklamator.com/
 License: GPL2
@@ -106,10 +106,32 @@ class AklamatorYoutubeWidget
     public $aklamator_url;
     public $api_data;
 
+    public $popular_channels = array(
+        array(
+            'name' => 'YouTube Spotlight',
+            'url' => 'https://www.youtube.com/user/youtube'
+        ),
+        array(
+            'name' => 'PewDiePie',
+            'url' => 'https://www.youtube.com/user/PewDiePie/'
+        ),
+        array(
+            'name' => 'EmiMusic',
+            'url' => 'https://www.youtube.com/user/emimusic'
+        ),
+        array(
+            'name' => 'FunToyzCollector',
+            'url' => 'https://www.youtube.com/user/disneycollectorbr'
+        )
+
+    );
+
+
     public function __construct()
     {
 
         $this->aklamator_url = "http://aklamator.com/";
+
 
         if (is_admin()) {
             add_action("admin_menu", array(
@@ -316,6 +338,15 @@ class AklamatorYoutubeWidget
                     <p>
                         <input type="text" style="width: 400px" name="aklamatorYTChannelURL" id="aklamatorYTChannelURL" value="<?php
                         echo $channel_url; ?>" maxlength="999" />
+
+                    </p>
+                    <p>
+                        <select id="aklamatorYTPopular" name="aklamatorYTPopular">
+                            <?php
+                            foreach ( $this->popular_channels as $item ): ?>
+                                <option <?php echo (get_option('aklamatorYTChannelURL') == $item['url'])? 'selected="selected"' : '' ;?> value="<?php echo $item['url']; ?>"><?php echo $item['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select> or choose from popular channel
 
                     </p>
                     <?php
@@ -541,6 +572,24 @@ class AklamatorYoutubeWidget
 //
                         if (this.selected) {
                             $(this).attr('selected', true);
+                        }else{
+                            $(this).removeAttr('selected');
+
+                        }
+                    });
+
+                });
+
+
+                $("#aklamatorYTPopular").change(function(){
+
+
+                    $(this).find("option").each(function () {
+//
+                        if (this.selected) {
+                            $('#aklamatorYTChannelURL').val(this.value);
+                            $(this).attr('selected', true);
+
                         }else{
                             $(this).removeAttr('selected');
 
