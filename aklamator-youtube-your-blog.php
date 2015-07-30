@@ -3,7 +3,7 @@
 Plugin Name: Aklamator - Youtube Your Blog
 Plugin URI: http://www.aklamator.com/wordpress
 Description: Show youtube channel on your blog, just paste one youtube and we will show all your channel videos. Drag and drop widget and show youtube gallery. Additionally Aklamator service enables you to add your media releases, sell PR announcements, cross promote web sites using RSS feed and provide new services to your clients in digital advertising.
-Version: 1.1
+Version: 1.2
 Author: Aklamator
 Author URI: http://www.aklamator.com/
 License: GPL2
@@ -30,6 +30,25 @@ if( !function_exists("aklamatorYT_plugin_settings_link")){
     }
 }
 add_filter("plugin_action_links_".plugin_basename(__FILE__), 'aklamatorYT_plugin_settings_link' );
+
+/*
+ * Add rate and review link in plugin section
+ */
+if( !function_exists("aklamatorYT_plugin_meta_links")) {
+    function aklamatorYT_plugin_meta_links($links, $file)
+    {
+        $plugin = plugin_basename(__FILE__);
+        // create link
+        if ($file == $plugin) {
+            return array_merge(
+                $links,
+                array('<a href="https://wordpress.org/support/view/plugin-reviews/aklamator-youtube-your-blog" target=_blank>Please rate and review</a>')
+            );
+        }
+        return $links;
+    }
+}
+add_filter( 'plugin_row_meta', 'aklamatorYT_plugin_meta_links', 10, 2);
 
 /*
  * Activation Hook

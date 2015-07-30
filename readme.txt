@@ -3,8 +3,8 @@ Contributors: (aklamator)
 Donate link: http://www.aklamator.com/
 Tags: youtube, video, youtube channel, youtube gallery, youtube feed, video feed, aklamator, aclamator, digital pr, widget, widgets, content promotion, earn, income, statistic, tracking, cross promotion,  crosspromote, thumbnail, channel, vevo
 Requires at least: 3.0.1
-Tested up to: 4.2.2
-Stable tag: 1.1
+Tested up to: 4.2.3
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,10 @@ Yes you can! But one widget can only be placed once per page, so use multiple wi
 5. How the aklamator youtube widget looks like?
 
 == Changelog ==
+
+= 1.2 =
+* Added please "rate and review" link in plugin section
+* Tested up to 4.2.3 (newest wp version)
 
 = 1.1 =
 * Added option to choose widget feed from popular YouTube channels
