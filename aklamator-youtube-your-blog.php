@@ -3,7 +3,7 @@
 Plugin Name: Aklamator - Youtube Your Blog
 Plugin URI: http://www.aklamator.com/wordpress
 Description: Show youtube channel on your blog, just paste one youtube and we will show all your channel videos. Drag and drop widget and show youtube gallery. Additionally Aklamator service enables you to add your media releases, sell PR announcements, cross promote web sites using RSS feed and provide new services to your clients in digital advertising.
-Version: 1.2
+Version: 1.3
 Author: Aklamator
 Author URI: http://www.aklamator.com/
 License: GPL2
@@ -492,8 +492,8 @@ class AklamatorYoutubeWidget
                         <td style="vertical-align: middle"><div style="float: left; margin-right: 10px" class="button-group">
                                 <input type="button" class="button primary big submit" onclick="myFunction('<?php echo $item->uniq_name; ?>')" value="Preview Widget">
                         </td>
-                        <td style="vertical-align: middle;" ><?php echo $item->img_size; ?>px</td>
-                        <td style="vertical-align: middle;" ><?php echo $item->column_number; ?> x <?php echo $item->row_number; ?></td>
+                        <td style="vertical-align: middle;" ><?php echo "<a href = \"$this->aklamator_url"."widget/edit/$item->id\" target='_blank' title='Click & Login to change'>$item->img_size px</a>";  ?></td>
+                        <td style="vertical-align: middle;" ><?php echo "<a href = \"$this->aklamator_url"."widget/edit/$item->id\" target='_blank' title='Click & Login to change'>".$item->column_number ." x ". $item->row_number."</a>"; ?></td>
                         <td style="vertical-align: middle;" ><?php echo $item->date_created; ?></td>
                     </tr>
                 <?php endforeach; ?>
@@ -532,23 +532,8 @@ class AklamatorYoutubeWidget
 
             function myFunction(widget_id) {
 
-                var myWindow = window.open("", "myWindow", "width=900, height=430, top=200, left=500");
-
-                tekst = '<div style="margin: 50px 0px" id="akla' + widget_id + '"></div>';
-                tekst += '<script>(function(d, s, id) {';
-                tekst += 'var js, fjs = d.getElementsByTagName(s)[0];';
-                tekst += 'if (d.getElementById(id)) return;';
-                tekst += 'js = d.createElement(s); js.id = id;';
-                tekst += 'js.src = "<?php echo $this->aklamator_url;?>widget/' + widget_id + '";';
-                tekst += 'fjs.parentNode.insertBefore(js, fjs);';
-                tekst += '}(document, \'script\', \'aklamator-' + widget_id + '\'))<\/script>';
-                tekst += '<hr><b>Widget doesn\'t show expected thumbnail or image? </b><br>' +
-                'Please note that Aklamator gets first image or YouTube thumbnail for each item in your feed. <br> If there is no image or YouTube video in your feed, Aklamator will show default image. Please check your feed! <br><br> <b>Tip:</b> images should be square. We are offering image resizing and caching service, please <a href="http://aklamator.com/support/ticket" target="_blank">contact us.</a>' ;
-
-                myWindow.document.write('');
-                myWindow.document.close();
-                myWindow.document.write(tekst);
-                myWindow.focus();
+                    var myWindow = window.open('<?php echo $this->aklamator_url;?>show/widget/'+widget_id);
+                    myWindow.focus();
 
             }
 
